@@ -1,8 +1,8 @@
 {
-  "name": "Bubble Tea Generator",
+  "name": "Simple Synthesizer",
   "icons": [
     {
-      "src": "assets/512.png",
+      "src": "assets/week1-img.png",
       "type": "image/png",
       "sizes": "512x512"
     }
