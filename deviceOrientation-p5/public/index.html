@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <title>CCLab Project</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="lib/p5.js"></script>
+    <!-- <script src="lib/p5.sound.js"></script> -->
+  </head>
+
+  <body>
+    <button
+      id="requestOrientationButton"
+      onclick="requestOrientation()"
+      style="position: fixed; top: 20px; left: 20px"
+    >
+      Start Recording
+    </button>
+
+    <div class="toolbar">
+      <div id="shape-choice">
+        <p>shape</p>
+        <button onclick="changeShape('waveform')">Waveform</button>
+        <button onclick="changeShape('rectangle')">Rectangle</button>
+        <button onclick="changeShape('circle')">Circle</button>
+        <!-- <button onclick="changeShape('earthy')">Earth</button> -->
+      </div>
+
+      <div id="palette-choice">
+        <p>color</p>
+        <button onclick="changeColorPalette('neon')">Neon</button>
+        <button onclick="changeColorPalette('monoWhite')">Mono</button>
+        <button onclick="changeColorPalette('ravePink')">Rave</button>
+        <button onclick="changeColorPalette('earthy')">Earth</button>
+      </div>
+
+      <div>
+        <input
+          type="range"
+          id="line-height"
+          name="line-height"
+          min="0"
+          max="50"
+          value="50"
+        />
+        <label for="line-height">Line Height</label>
+        <output id="line-height-text">0.5</output>
+      </div>
+
+      <div>
+        <input
+          type="range"
+          id="shape-size"
+          name="shape-size"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <label for="shape-size">Shape Size</label>
+        <output id="shape-size-text">50</output>
+      </div>
+
+      <div class="debug">
+        <p id="alphaText"></p>
+        <p id="betaText"></p>
+        <p id="gammaText"></p>
+      </div>
+      <div class="debug">
+        <p id="timeText"></p>
+        <p id="frameCount"></p>
+      </div>
+
+      <button onclick="endRecording()">End Recording</button>
+    </div>
+
+    <div class="main-wrapper">
+      <!-- <h1>Project Title</h1> -->
+
+      <!-- the following div will contain the p5 canvas. -->
+      <div id="p5-canvas-container">
+        <!-- p5 canvas will be appended here. -->
+      </div>
+
+      <!-- <p>Project Description</p> -->
+    </div>
+
+    <!-- function to request orientation -->
+    <script src="requestOrientation.js"></script>
+    <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+    <script src="sketch.js"></script>
+  </body>
+</html>
