@@ -1,6 +1,12 @@
 let gyroAlpha = 0;
 let gyroBeta = 0;
 let gyroGamma = 0;
+
+let baseAlpha, baseBeta, baseGamma;
+let relativeAlpha = 0;
+let relativeBeta = 0;
+let relativeGamma = 0;
+
 let time = 0;
 let x = 0;
 let y = 10;
@@ -47,6 +53,11 @@ function setup() {
       [254, 211, 208],
       [253, 255, 235],
     ],
+    monoBlack: [
+      [10, 10, 10],
+      [255, 255, 255],
+      [10, 10, 10],
+    ],
   };
 
   curPalette = colorPalettes[curPaletteName];
@@ -55,14 +66,10 @@ function setup() {
 function draw() {
   if (start) time = millis();
 
+  if (calibrationRequest) calibration();
+
   noStroke();
 }
-
-// P5 touch events: https://p5js.org/reference/#Touch
-
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
 
 function handleOrientation(eventData) {
   document.querySelector("#requestOrientationButton").style.display = "none";
@@ -71,6 +78,17 @@ function handleOrientation(eventData) {
   gyroAlpha = eventData.alpha;
   gyroBeta = eventData.beta;
   gyroGamma = eventData.gamma;
+
+  if (gyroAlpha < 180) {
+    relativeAlpha = gyroAlpha;
+  } else {
+    relativeAlpha = 360 - gyroAlpha;
+  }
+
+  relativeBeta = abs(gyroBeta - baseBeta);
+  relativeGamma = abs(gyroGamma - baseGamma);
+
+  //console.log(relativeAlpha);
 
   document.querySelector("#alphaText").innerText =
     "alpha: " + Math.round(gyroAlpha);
@@ -109,9 +127,9 @@ function handleOrientation(eventData) {
     "total framecount: " + Math.round(imgs.length);
 
   rectMode(CENTER);
-  let gyroAlphaMap = map(gyroAlpha, 0, 360, 1, rectHMax / 4);
-  let gyroBetaMap = map(gyroBeta, 0, 360, 1, rectHMax);
-  let gyroGammaMap = map(gyroGamma, 0, 360, 1, rectHMax);
+  let relativeAlphaMap = map(relativeAlpha, 0, 180, 1, rectHMax);
+  let relativeBetaMap = map(relativeBeta, 0, 180, 1, rectHMax);
+  let relativeGammaMap = map(relativeGamma, 0, 180, 1, rectHMax);
 
   let unitW = 0.3;
 
@@ -119,27 +137,27 @@ function handleOrientation(eventData) {
 
   if (curShape == "waveform") {
     fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 180);
-    rect(x, y, 0.3, gyroAlphaMap);
+    rect(x, y, 0.3, relativeAlphaMap);
     fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 180);
-    rect(x, y, 0.3, gyroBetaMap);
+    rect(x, y, 0.3, relativeBetaMap);
     fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 180);
-    rect(x, y, 0.3, gyroGammaMap);
+    rect(x, y, 0.3, relativeGammaMap);
     speedX = 0.3;
   } else if (curShape == "rectangle") {
-    fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 5);
-    rect(x, y, gyroAlphaMap, gyroAlphaMap);
-    fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 5);
-    rect(x, y, gyroBetaMap, gyroBetaMap);
-    fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 5);
-    rect(x, y, gyroGammaMap, gyroGammaMap);
+    fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 10);
+    rect(x, y, relativeAlphaMap, relativeAlphaMap);
+    fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 10);
+    rect(x, y, relativeBetaMap, relativeBetaMap);
+    fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 10);
+    rect(x, y, relativeGammaMap, relativeGammaMap);
     speedX = 0.3;
   } else if (curShape == "circle") {
-    fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 5);
-    circle(x, y, gyroAlphaMap);
-    fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 5);
-    circle(x, y, gyroBetaMap);
-    fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 5);
-    circle(x, y, gyroGammaMap);
+    fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 10);
+    circle(x, y, relativeAlphaMap);
+    fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 10);
+    circle(x, y, relativeBetaMap);
+    fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 10);
+    circle(x, y, relativeGammaMap);
     speedX = 0.3;
   }
 
@@ -161,11 +179,27 @@ function handleOrientation(eventData) {
 
 function changeColorPalette(str) {
   curPalette = colorPalettes[str];
-  console.log(str);
 }
 
 function changeShape(str) {
   curShape = str;
+}
+
+function changeBGColor(str) {
+  document.querySelector("canvas").style.backgroundColor = str;
+
+  if (str == "white") {
+    console.log("haha");
+    curPalette = colorPalettes["monoBlack"];
+    document.querySelectorAll(".toolTitle").forEach((el) => {
+      el.style.color = "black";
+    });
+  } else {
+    curPalette = colorPalettes["monoWhite"];
+    document.querySelectorAll(".toolTitle").forEach((el) => {
+      el.style.color = "white";
+    });
+  }
 }
 
 function endRecording() {
@@ -184,4 +218,12 @@ function endRecording() {
   }
 
   save(finalImage, "motion-strip.png");
+}
+
+function calibration() {
+  baseAlpha = gyroAlpha;
+  baseBeta = gyroBeta;
+  baseGamma = gyroGamma;
+
+  calibrationRequest = false;
 }

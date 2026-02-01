@@ -18,3 +18,5 @@ function handleOrientation(eventData) {
 
   //console.log("eventData.alpha ");
 }
+
+

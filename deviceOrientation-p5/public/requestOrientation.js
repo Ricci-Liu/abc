@@ -1,5 +1,6 @@
 // from: https://dev.to/li/how-to-requestpermission-for-devicemotion-and-deviceorientation-events-in-ios-13-46g2
 let start = false;
+let calibrationRequest = false;
 
 function requestOrientation() {
   // feature detect
@@ -8,6 +9,7 @@ function requestOrientation() {
       .then((permissionState) => {
         if (permissionState === "granted") {
           start = true;
+          calibrationRequest = true;
           window.addEventListener("deviceorientation", handleOrientation, true);
         }
       })
