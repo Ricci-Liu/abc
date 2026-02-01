@@ -54,9 +54,9 @@ function setup() {
       [253, 255, 235],
     ],
     monoBlack: [
-      [10, 10, 10],
+      [0, 0, 0],
       [255, 255, 255],
-      [10, 10, 10],
+      [0, 0, 0],
     ],
   };
 
@@ -127,50 +127,53 @@ function handleOrientation(eventData) {
     "total framecount: " + Math.round(imgs.length);
 
   rectMode(CENTER);
+
   let relativeAlphaMap = map(relativeAlpha, 0, 180, 1, rectHMax);
   let relativeBetaMap = map(relativeBeta, 0, 180, 1, rectHMax);
   let relativeGammaMap = map(relativeGamma, 0, 180, 1, rectHMax);
+  console.log(relativeAlphaMap, relativeBetaMap, relativeGammaMap);
 
   let unitW = 0.3;
 
   //console.log(curPalette[0]);
 
   if (curShape == "waveform") {
-    fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 180);
+    fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 255);
     rect(x, y, 0.3, relativeAlphaMap);
-    fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 180);
+    fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 255);
     rect(x, y, 0.3, relativeBetaMap);
-    fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 180);
+    fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 255);
     rect(x, y, 0.3, relativeGammaMap);
     speedX = 0.3;
   } else if (curShape == "rectangle") {
+    rectHMax = 5;
     fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 10);
     rect(x, y, relativeAlphaMap, relativeAlphaMap);
     fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 10);
     rect(x, y, relativeBetaMap, relativeBetaMap);
     fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 10);
     rect(x, y, relativeGammaMap, relativeGammaMap);
-    speedX = 0.3;
+    speedX = 1;
   } else if (curShape == "circle") {
+    rectHMax = 5;
     fill(curPalette[0][0], curPalette[0][1], curPalette[0][2], 10);
     circle(x, y, relativeAlphaMap);
     fill(curPalette[1][0], curPalette[1][1], curPalette[1][2], 10);
     circle(x, y, relativeBetaMap);
     fill(curPalette[2][0], curPalette[2][1], curPalette[2][2], 10);
     circle(x, y, relativeGammaMap);
-    speedX = 0.3;
+    speedX = 1;
   }
 
   if (start) x += speedX;
 
   if (x >= width) {
     x = 0;
-    y += (rectHMax * lineHeight) / 100;
+    y += rectHMax * (lineHeight / 10);
 
     if (y >= windowHeight) {
       img = get();
       imgs.push(img);
-      background(0);
       x = 0;
       y = 10;
     }
@@ -190,12 +193,12 @@ function changeBGColor(str) {
 
   if (str == "white") {
     console.log("haha");
-    curPalette = colorPalettes["monoBlack"];
+    if (curPaletteName == "monoWhite") curPalette = colorPalettes["monoBlack"];
     document.querySelectorAll(".toolTitle").forEach((el) => {
       el.style.color = "black";
     });
-  } else {
-    curPalette = colorPalettes["monoWhite"];
+  } else if (str == "black") {
+    if (curPaletteName == "monoBlack") curPalette = colorPalettes["monoWhite"];
     document.querySelectorAll(".toolTitle").forEach((el) => {
       el.style.color = "white";
     });
@@ -211,7 +214,12 @@ function endRecording() {
   let imgH = height * imgs.length;
 
   let finalImage = createGraphics(imgW, imgH);
-  finalImage.background(0);
+
+  if (document.querySelector("canvas").style.backgroundColor == "white") {
+    finalImage.background(255);
+  } else {
+    finalImage.background(0);
+  }
 
   for (let i = 0; i < imgs.length; i++) {
     finalImage.image(imgs[i], 0, i * height);
