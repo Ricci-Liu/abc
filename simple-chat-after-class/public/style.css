@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-size: 30px;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.main-wrapper {
+  color: white;
+  width: 100%;
+  height: 95vh;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  /* align-content: stretch; */
+  justify-content: space-between;
+  padding: 5px 5px;
+  /* padding-bottom: 15px; */
+  box-sizing: border-box;
+}
+
+#infoBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+#infoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+#infoModal.hidden {
+  display: none;
+}
+
+.info-content {
+  background: #fff;
+  color: #000;
+  width: 320px;
+  max-width: 80%;
+  padding: 20px;
+  position: relative;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#closeInfo {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#welcome-title {
+  margin-bottom: 5px;
+}
+
+#threadWrapper {
+  background-color: rgb(0, 0, 0);
+  flex-grow: 1;
+  margin: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+#threadWrapper ul {
+  list-style: none;
+  /* margin:0; */
+  padding: 10px;
+
+  /* outline: 1px black dotted; */
+  overflow: scroll;
+}
+#threadWrapper li {
+  /* background-color: blanchedalmond; */
+  margin-top: 5px;
+  padding: 5px 2px;
+  /* display: inline-block; */
+}
+.who {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.words {
+  margin-left: 20px;
+  /* background-color: rgb(255, 255, 255); */
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#threadWrapper li:nth-child(even) {
+  background-color: rgb(0, 0, 0);
+}
+/* .words{
+    background-color: blanchedalmond;
+} */
+
+#chatForm {
+  display: flex;
+  justify-content: space-between;
+}
+#chatForm input {
+  flex-grow: 1;
+  height: 30px;
+}
+
+#nameWrapper input {
+  /* width: 100%; */
+  height: 20px;
+  /* box-sizing: border-box; */
+}
+#nameWrapper p {
+  display: inline;
+}

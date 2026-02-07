@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <title>Simple Chat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+      <h3 id="welcome-title">WELCOME TO THE GRAMMARLESS ROOM</h3>
+
+      <button id="infoBtn">RULES</button>
+
+      <div id="infoModal" class="hidden">
+        <div class="info-content">
+          <span id="closeInfo">×</span>
+
+          <h4>Grammar operations in this room</h4>
+
+          <p>
+            <strong>Tense</strong><br />
+            Past and future collapse into the present.<br />
+            was / will be → is
+          </p>
+
+          <p>
+            <strong>Verb Tenses</strong><br />
+            Ongoing and completed actions reduce to base form.<br />
+            waiting / waited → wait<br />
+            going / went → go
+          </p>
+
+          <p>
+            <strong>Plurality</strong><br />
+            Plural markers are removed.<br />
+            keys → key
+          </p>
+
+          <p>
+            <strong>Articles (A/An/The) </strong><br />
+            Indefinite and definite collapse into one.<br />
+            a / an / the → the
+          </p>
+
+          <p>
+            All messages are processed by a fixed sequence of grammatical
+            rules.<br />
+            Gaps in grammar and limits of the system may produce unexpected
+            transformations—some affect comprehension, others do not.
+          </p>
+        </div>
+      </div>
+
+      <div id="nameWrapper">
+        <input type="text" placeholder="Your Name" />
+        <p>your name</p>
+      </div>
+      <div id="threadWrapper">
+        <ul></ul>
+      </div>
+      <div>
+        <form id="chatForm">
+          <input
+            id="newMessage"
+            placeholder="Type something"
+            autocomplete="off"
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+    <script src="script.js"></script>
+  </body>
+</html>
