@@ -11,7 +11,7 @@ if (
 socket.emit("my-role", { role: "phone3" });
 
 let originX, originY;
-let totalPointsNum = 500;
+let totalPointsNum = 400;
 
 let spd = 5;
 let strokeW = 10;
