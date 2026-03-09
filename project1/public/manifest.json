@@ -1,8 +1,8 @@
 {
-  "name": "Frog",
+  "name": "Inteference",
   "icons": [
     {
-      "src": "assets/512.png",
+      "src": "img/thumbnail.png",
       "type": "image/png",
       "sizes": "512x512"
     }
