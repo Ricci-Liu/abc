@@ -8,7 +8,7 @@ if (
   socket = io();
 }
 
-socket.emit("my-role", { role: "phone2" });
+socket.emit("my-role", { role: "phone3" });
 
 let originX, originY;
 let totalPointsNum = 600;
@@ -22,7 +22,6 @@ let receivedXArr = [];
 let receivedXHold;
 
 let wavePoints = [];
-let wavePointsXSent = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -53,13 +52,6 @@ function draw() {
 
   // 4) Push point at top
   wavePoints.push({ x: finalX, y: originY });
-  wavePointsXSent.push(finalX);
-
-  if (wavePointsXSent.length >= totalPointsNum) {
-    socket.emit("wavePointsX-from-phone2", wavePointsXSent);
-    console.log(wavePointsXSent);
-    wavePointsXSent = [];
-  }
 
   for (let i = wavePoints.length - 1; i >= 0; i--) {
     wavePoints[i].y += spd;
@@ -83,7 +75,7 @@ function draw() {
   textSize(16);
 }
 
-socket.on("wavePointsX-from-phone1-server", (xs) => {
+socket.on("wavePointsX-from-phone2-server", (xs) => {
   receivedXArr = receivedXArr.concat(xs);
   console.log(receivedXArr);
 });
@@ -96,21 +88,8 @@ function handleOrientation(eventData) {
   gyroBeta = eventData.beta;
   gyroGamma = eventData.gamma;
 
-  let smoothedAlpha = getSmoothedAlpha(gyroAlpha);
-
   textSize(16);
   stroke(0);
-  text(smoothedAlpha, 100, 100);
 
   deltaX = map(gyroGamma, -90, 90, -width / 3 + 50, width / 3 - 50);
-}
-
-function getSmoothedAlpha(alphaData) {
-  let delta;
-  if (alphaData > 180) {
-    delta = 360 - alphaData;
-  } else {
-    delta = -alphaData;
-  }
-  return delta;
 }

@@ -40,47 +40,22 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("wavePoints-from-phone1", (data) => {
+  socket.on("wavePointsX-from-phone1", (data) => {
     if (phone2) {
-      io.to(phone2).emit("wavePoints-from-phone1-server", data);
+      io.to(phone2).emit("wavePointsX-from-phone1-server", data);
+    }
+  });
+
+  socket.on("wavePointsX-from-phone2", (data) => {
+    if (phone3) {
+      io.to(phone3).emit("wavePointsX-from-phone2-server", data);
     }
   });
 
   // DISCONNECT
-  // manage the roles
+  // manage the rolesx`
   socket.on("disconnect", function () {
     console.log("someone disconnected", socket.id);
-
-    //console.log(frogs);
-
-    // delete frog from the global array
-    // that keeps track of all frogs online
-
-    // find index
-    //   let idx = frogs.findIndex(function (f) {
-    //     return f.id == socket.id;
-    //   });
-    //   console.log(idx);
-
-    //   // if its a frog
-    //   if (idx > -1) {
-    //     frogs.splice(idx, 1);
-    //   }
-    //   console.log(frogs);
-    //   // delete frog
-    //   // if it's a cnductpr
-    //   // delete conductor
-
-    //   if (socket.id == conductor) {
-    //     conductor = undefined;
-    //   }
-
-    //   // if the condiuctr is still online
-    //   // tell them which frog has been deleted
-
-    //   if (conductor != undefined) {
-    //     io.to(conductor).emit("delete-frog", socket.id);
-    //   }
   });
 });
 
