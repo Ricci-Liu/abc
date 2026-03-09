@@ -21,7 +21,7 @@ let originX;
 let originY = 0;
 
 let spd = 5;
-let totalPointsNum = 600;
+let totalPointsNum = 400;
 
 let deltaX = 0;
 
@@ -103,7 +103,7 @@ function handleOrientation(eventData) {
 
   testAngle = smoothedAlpha;
 
-  deltaX = map(gyroGamma, -90, 90, -width / 3 + 50, width / 3 - 50);
+  deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
   // if (dirRight(gyroAlpha)) {
   //   deltaX = map(gyroBeta, 90, 180, 0, width / 4 - 50);
   // } else {

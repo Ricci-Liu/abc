@@ -3,7 +3,7 @@ if (
   location.hostname.toLowerCase().startsWith("browsercircus") ||
   location.hostname.toLowerCase().startsWith("www")
 ) {
-  socket = io({ path: "/YOUR-NAME/YOUR-PORT/socket.io" }); // <-- replace!
+  socket = io({ path: "/ruiqi/port-4260/socket.io" }); // <-- replace!
 } else {
   socket = io();
 }
@@ -11,7 +11,7 @@ if (
 socket.emit("my-role", { role: "phone3" });
 
 let originX, originY;
-let totalPointsNum = 600;
+let totalPointsNum = 400;
 
 let spd = 5;
 let strokeW = 10;
@@ -91,5 +91,5 @@ function handleOrientation(eventData) {
   textSize(16);
   stroke(0);
 
-  deltaX = map(gyroGamma, -90, 90, -width / 3 + 50, width / 3 - 50);
+  deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
 }
