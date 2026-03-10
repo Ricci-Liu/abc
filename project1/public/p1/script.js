@@ -21,7 +21,7 @@ let originX;
 let originY = 0;
 
 let spd = 5;
-let totalPointsNum = 450;
+let totalPointsNum = 550;
 
 let deltaX = 0;
 
