@@ -11,7 +11,7 @@ if (
 socket.emit("my-role", { role: "phone2" });
 
 let originX, originY;
-let totalPointsNum = 650;
+let totalPointsNum = 600;
 
 let spd = 5;
 let strokeW = 10;
@@ -102,7 +102,7 @@ function handleOrientation(eventData) {
   stroke(0);
   text(smoothedAlpha, 100, 100);
 
-  deltaX = map(gyroGamma, -90, 90, -width / 3 + 100, width / 3 - 100);
+  deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
 }
 
 function getSmoothedAlpha(alphaData) {
