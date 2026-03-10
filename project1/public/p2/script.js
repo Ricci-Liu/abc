@@ -102,7 +102,7 @@ function handleOrientation(eventData) {
   stroke(0);
   text(smoothedAlpha, 100, 100);
 
-  deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
+  deltaX = map(gyroGamma, -90, 90, -width / 3 + 50, width / 3 - 50);
 }
 
 function getSmoothedAlpha(alphaData) {

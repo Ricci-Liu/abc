@@ -91,5 +91,5 @@ function handleOrientation(eventData) {
   textSize(16);
   stroke(0);
 
-  deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
+  deltaX = map(gyroGamma, -90, 90, -width / 4, width / 4);
 }
