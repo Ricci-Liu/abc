@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>GPS Hair Project</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="lib/p5.js"></script>
+    <script src="lib/mappa.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #111;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        color: #eee;
+        overflow: hidden;
+        height: 100dvh;
+        width: 100dvw;
+      }
+
+      /* ── GPS permission overlay ── */
+      #gps-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(10, 10, 10, 0.92);
+        backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #gps-card {
+        background: #1c1c1e;
+        border: 1px solid #333;
+        border-radius: 24px;
+        padding: 40px 32px 36px;
+        max-width: 320px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      }
+
+      #gps-card h2 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 12px 0 10px;
+        letter-spacing: 0.5px;
+        color: #fff;
+      }
+
+      #gps-card p {
+        font-size: 0.88rem;
+        color: #aaa;
+        line-height: 1.6;
+      }
+
+      #gps-btn {
+        margin-top: 28px;
+        width: 100%;
+        padding: 14px 0;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #ffd93d, #ff9a3c);
+        color: #111;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        transition: opacity 0.2s;
+      }
+
+      #gps-btn:active {
+        opacity: 0.8;
+      }
+
+      /* ── Main canvas wrapper ── */
+      .main-wrapper {
+        width: 100dvw;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #p5-canvas-container canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gps-overlay">
+      <div id="gps-card">
+        <p style="font-size: 40px; margin: 0">🧑‍🦲</p>
+        <h2>GPS Hair Project</h2>
+        <p>Your movement becomes hair.<br />Walk anywhere in the world.</p>
+        <button id="gps-btn" onclick="onGPSBtn()">Allow GPS &amp; Start</button>
+      </div>
+    </div>
+
+    <div class="main-wrapper">
+      <div id="p5-canvas-container"></div>
+    </div>
+
+    <script src="requestGPS.js"></script>
+    <script src="sketch.js"></script>
+    <script>
+      function onGPSBtn() {
+        requestGPS();
+        requestOrientation();
+        document.getElementById("gps-overlay").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

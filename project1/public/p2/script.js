@@ -104,13 +104,3 @@ function handleOrientation(eventData) {
 
   deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
 }
-
-function getSmoothedAlpha(alphaData) {
-  let delta;
-  if (alphaData > 180) {
-    delta = 360 - alphaData;
-  } else {
-    delta = -alphaData;
-  }
-  return delta;
-}

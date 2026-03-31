@@ -72,11 +72,6 @@ function draw() {
   noFill();
   beginShape();
 
-  if (testAngle) {
-    textSize(16);
-    //strokeWeight(1);
-    //text(testAngle, 100, 100);
-  }
   for (let i = 0; i < wavePoints.length; i++) {
     vertex(wavePoints[i].x, wavePoints[i].y);
   }
@@ -84,11 +79,6 @@ function draw() {
 
   strokeWeight(1);
   textSize(20);
-  // text(round(gyroAlpha), 50, 150);
-  // text(round(gyroBeta), 50, 175);
-  // text(round(gyroGamma), 50, 200);
-
-  // text("deg" + round(deg), 50, 240);
 }
 
 let startAngle = undefined;
@@ -104,36 +94,6 @@ function handleOrientation(eventData) {
   testAngle = smoothedAlpha;
 
   deltaX = map(gyroGamma, -90, 90, -width / 3, width / 3);
-  // if (dirRight(gyroAlpha)) {
-  //   deltaX = map(gyroBeta, 90, 180, 0, width / 4 - 50);
-  // } else {
-  //   deltaX = map(gyroBeta, 90, 180, -width / 4 + 50, 0);
-  // }
-
-  let euler = new THREE.Euler(
-    (gyroBeta * Math.PI) / 180,
-    (gyroAlpha * Math.PI) / 180,
-    (-gyroGamma * Math.PI) / 180,
-    "YXZ",
-  );
-  let quaternion = new THREE.Quaternion().setFromEuler(euler);
-  // console.log(quaternion);
-  const forward = new THREE.Vector3(0, 0, 1);
-  forward.applyQuaternion(quaternion);
-  // console.log(forward);
-  // forward.z = 0;
-  // forward.y = 0;
-  forward.normalize();
-
-  let aa = Math.atan2(forward.x, forward.z);
-  // console.log(aa);
-  deg = degrees(aa);
-  if (!startAngle) {
-    startAngle = deg;
-  } else {
-    deg = deg - startAngle;
-  }
-  // console.log(deg);
 }
 
 function getSmoothedAlpha(alphaData) {
