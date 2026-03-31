@@ -31,7 +31,7 @@ if (
   location.hostname.toLowerCase().startsWith("browsercircus") ||
   location.hostname.toLowerCase().startsWith("www")
 ) {
-  socket = io({ path: "/luna/port-4240/socket.io" });
+  socket = io({ path: "/ruiqi/port-4260/socket.io" });
 } else {
   socket = io();
 }
