@@ -111,7 +111,7 @@ function draw() {
   drawLabels();
 }
 
-// Re-center the map on my origin location
+// Re-center the map on my origin location, for the home button
 function calibration() {
   if (!mapInit || !myMap || !myMap.map) return;
   if (myOriginLat === null || myOriginLon === null) return;
@@ -130,6 +130,7 @@ function handleNewPosition(pos) {
   currentLat = lonlat[1];
   if (pos.coords.heading != null) myHeading = pos.coords.heading;
 
+  // do something when the user first enters the page/refreshes the page
   if (myOriginLat === null) {
     myOriginLat = currentLat;
     myOriginLon = currentLon;
