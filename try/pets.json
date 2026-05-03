@@ -15,18 +15,18 @@
       "age": 0,
       "weight": 45
     },
-    "x": 669.7452143863738,
-    "y": 231.33191577334034,
-    "vx": 8.278909644626362,
-    "vy": 0.4621007694556674,
-    "wanderAngle": 6.338944071729014,
+    "x": 30.198365941823795,
+    "y": 420.5207002508931,
+    "vx": 1,
+    "vy": 5.477680303709762,
+    "wanderAngle": 7.004822249514849,
     "restTimer": 0,
     "lastPoopTime": 1777834771904,
     "sounds": {
       "eat": "uploads-audio/1777753603524.mp3"
     },
-    "meetingTimer": 0,
-    "meetingFacing": 0
+    "meetingTimer": 4,
+    "meetingFacing": 1
   },
   {
     "userId": "df3cb2b9-f1cf-4379-90c4-a44f379fb96d",
@@ -39,23 +39,23 @@
     "right1": "uploads/1777753518327.png",
     "right2": "uploads/1777753518344.png",
     "stats": {
-      "hunger": 2,
+      "hunger": 0,
       "happy": 0,
       "age": 0,
-      "weight": 65
+      "weight": 55
     },
-    "x": 52.15217407617523,
-    "y": 328.49006679753654,
-    "vx": 1,
-    "vy": -0.4273269236491526,
-    "wanderAngle": 40.90233803325202,
+    "x": 201.7679683628118,
+    "y": 52.65137004784177,
+    "vx": -4.234103350487528,
+    "vy": -5.890107642899684,
+    "wanderAngle": 48.07142092610606,
     "restTimer": 0,
-    "lastPoopTime": 1777834411906,
+    "lastPoopTime": 1777835131905,
     "sounds": {
       "eat": "uploads-audio/1777753545001.mp3"
     },
-    "meetingTimer": 21,
-    "meetingFacing": 1
+    "meetingTimer": 0,
+    "meetingFacing": 0
   },
   {
     "userId": "d854f2ca-7c63-4be8-9cd2-213b2d79b881",
@@ -68,16 +68,16 @@
     "right1": "uploads/1777784232621.png",
     "right2": "uploads/1777784232640.png",
     "stats": {
-      "hunger": 5,
+      "hunger": 0,
       "happy": 0,
       "age": 0,
       "weight": 60
     },
-    "x": 432.88991025360457,
-    "y": 504.8973407342844,
-    "vx": -6.522047677500209,
-    "vy": 3.1755146543464576,
-    "wanderAngle": -72.70973510620908,
+    "x": 720.4155707238425,
+    "y": 188.74310397386094,
+    "vx": 6.7901480660455364,
+    "vy": -2.552427955640091,
+    "wanderAngle": 81.32184805770164,
     "restTimer": 0,
     "lastPoopTime": 1777834591904,
     "sounds": {
@@ -100,22 +100,22 @@
       "hunger": 0,
       "happy": 0,
       "age": 0,
-      "weight": 49
+      "weight": 44
     },
-    "x": 574.3560702890385,
-    "y": 417.3655415251872,
-    "vx": 3.8427214486852455,
-    "vy": 7.016658169514486,
-    "wanderAngle": 63.90160687197101,
+    "x": 110.1983659418238,
+    "y": 442.54285895310704,
+    "vx": -1,
+    "vy": -1.119282994660756,
+    "wanderAngle": 68.97466748081148,
     "restTimer": 0,
-    "lastPoopTime": 1777834591904,
+    "lastPoopTime": 1777835131906,
     "sounds": {
       "eat": "uploads-audio/1777811147188.mp3",
       "poop": "uploads-audio/1777807635358.mp3",
       "greet": "uploads-audio/1777827546172.mp3"
     },
-    "meetingTimer": 0,
-    "meetingFacing": 0
+    "meetingTimer": 4,
+    "meetingFacing": -1
   },
   {
     "userId": "763baabe-29cd-41d7-a661-723d638afb44",
@@ -131,17 +131,17 @@
       "hunger": 0,
       "happy": 0,
       "age": 0,
-      "weight": 50
+      "weight": 40
     },
-    "x": 132.15217407617524,
-    "y": 346.15460049416845,
+    "x": 522.4732646674622,
+    "y": 442.7462601864386,
     "vx": -1,
-    "vy": -7.7384884863769745,
-    "wanderAngle": -26.483921504953216,
-    "restTimer": 0,
-    "lastPoopTime": 1777834591904,
-    "meetingTimer": 20,
-    "meetingFacing": -1
+    "vy": 3.228139696801584,
+    "wanderAngle": -28.67422418796154,
+    "restTimer": 46,
+    "lastPoopTime": 1777835131906,
+    "meetingTimer": 0,
+    "meetingFacing": 0
   },
   {
     "userId": "1b20c978-7f81-4b2e-a0a7-43dc6c355f3d",
@@ -157,15 +157,15 @@
       "hunger": 0,
       "happy": 0,
       "age": 0,
-      "weight": 30
+      "weight": 25
     },
-    "x": 85.56603401341302,
-    "y": 545.2438787394275,
-    "vx": -9.522504251832004,
-    "vy": 0.0717322960147821,
-    "wanderAngle": 21.983615794113273,
-    "restTimer": 0,
-    "lastPoopTime": 1777834591904,
+    "x": 628.1869996344269,
+    "y": 166.55452962830793,
+    "vx": 7.541845559459892,
+    "vy": -6.566625126901574,
+    "wanderAngle": -25.84912612396818,
+    "restTimer": 38,
+    "lastPoopTime": 1777834951906,
     "meetingTimer": 0,
     "meetingFacing": 0
   },
@@ -180,18 +180,18 @@
     "right1": "uploads/1777834333542.png",
     "right2": "uploads/1777834333592.png",
     "stats": {
-      "hunger": 55,
-      "happy": 44,
+      "hunger": 31,
+      "happy": 20,
       "age": 0,
-      "weight": 45
+      "weight": 35
     },
-    "x": 635.7098433704936,
-    "y": 405.8487378447629,
-    "vx": -6.323678505297607,
-    "vy": 5.363298629263146,
-    "wanderAngle": 2.4381854825041582,
+    "x": 445.46073400314344,
+    "y": 231.65379651740759,
+    "vx": 1.4249530086255564,
+    "vy": -8.557619371829189,
+    "wanderAngle": -7.688982685947993,
     "restTimer": 0,
-    "lastPoopTime": 1777834771905,
+    "lastPoopTime": 1777835131906,
     "meetingTimer": 0,
     "meetingFacing": 0,
     "sounds": {
@@ -211,16 +211,16 @@
     "right1": "uploads/1777834350885.png",
     "right2": "uploads/1777834350940.png",
     "stats": {
-      "hunger": 85,
-      "happy": 45,
+      "hunger": 61,
+      "happy": 21,
       "age": 0,
       "weight": 55
     },
-    "x": 139.4832666889854,
-    "y": 244.08641780037428,
-    "vx": -7.2359545971056045,
-    "vy": 2.2704639296312057,
-    "wanderAngle": 21.687102276583598,
+    "x": 427.07224050518874,
+    "y": 462.4259213671126,
+    "vx": -1.5350318069186832,
+    "vy": 7.426824539389501,
+    "wanderAngle": 26.907355057722555,
     "restTimer": 0,
     "lastPoopTime": 1777834771905,
     "meetingTimer": 0,
@@ -242,18 +242,18 @@
     "right1": "uploads/1777834879248.png",
     "right2": "uploads/1777834879296.png",
     "stats": {
-      "hunger": 98,
-      "happy": 98,
+      "hunger": 74,
+      "happy": 74,
       "age": 0,
-      "weight": 50
+      "weight": 40
     },
-    "x": 254.0541123353355,
-    "y": 98.37062415457,
-    "vx": -3.99126705101628,
-    "vy": -6.851113265120315,
-    "wanderAngle": 4.184882729603913,
+    "x": 665.824375164586,
+    "y": 487.92219338713295,
+    "vx": 7.2846633933637985,
+    "vy": -3.960752614138422,
+    "wanderAngle": -6.781187397960594,
     "restTimer": 0,
-    "lastPoopTime": 1777834878842,
+    "lastPoopTime": 1777835131906,
     "meetingTimer": 0,
     "meetingFacing": 0
   }
