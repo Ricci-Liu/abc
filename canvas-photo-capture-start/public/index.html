@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <title>Simple Chat</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="lib/p5.js"></script>
+    <script src="lib/p5.sound.js"></script>
+
+    <!-- include socket.io library: -->
+    <!-- <script src="/socket.io/socket.io.js"></script>  -->
+    <script src="socket.io/socket.io.js"></script>
+  </head>
+
+  <body>
+    <div id="main-wrapper">
+      <div id="captureArea">
+        <div id="canvas-wrapper"></div>
+        <button id="captureButton">SNAP!</button>
+        <div id="pen-tools">
+          <input type="color" id="color-picker" value="#000000" />
+          <p>Current Brush:</p>
+          <div id="pen-preview" input type="color" value="#000000"></div>
+          <div id="sliders">
+            <!-- <label
+              >R <input type="range" id="r-slider" min="0" max="255" value="0"
+            /></label>
+            <label
+              >G <input type="range" id="g-slider" min="0" max="255" value="0"
+            /></label>
+            <label
+              >B <input type="range" id="b-slider" min="0" max="255" value="0"
+            /></label> -->
+            <label
+              >Size
+              <input type="range" id="size-slider" min="2" max="40" value="20"
+            /></label>
+          </div>
+          <div id="tool-buttons">
+            <button class="shape-btn" onclick="changeShape('line')">
+              Line ——
+            </button>
+            <button class="shape-btn" onclick="changeShape('strokeCircle')">
+              StrokeCircle O
+            </button>
+            <!-- <button class = "shape-btn"onclick="changeShape('rectangle')">Rectangle</button> -->
+            <button class="shape-btn" onclick="changeShape('circle')">
+              Circle ⚫
+            </button>
+            <button id="eraser-btn">Eraser</button>
+            <button id="clear-btn">Clean</button>
+          </div>
+        </div>
+        <button id="preview-button">Preview Avatar</button>
+        <button id="sendButton">Send to Server</button>
+      </div>
+    </div>
+    <!-- 
+      <div id="album">
+        <button id="deleteButton">delete</button>
+        <p>album</p>
+        <div id="images"></div>
+      </div>
+    </div> -->
+
+    <audio
+      id="camSound"
+      src="231286__ulose2piranha__5dmkii-shutter-sound.wav"
+    ></audio>
+    <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+    <script src="script.js"></script>
+  </body>
+</html>
