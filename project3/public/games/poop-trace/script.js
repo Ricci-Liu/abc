@@ -416,3 +416,7 @@ function loadPetFromServer() {
     });
   }
 }
+
+function goToPage(address) {
+  window.href.location = base + "poop-trace";
+}
