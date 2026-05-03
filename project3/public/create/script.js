@@ -342,7 +342,7 @@ function sendImageToServer(blob, frame, callback) {
   formData.append("petName", petName);
   formData.append("userId", myUserId);
   formData.append("frame", frame);
-  fetch("/upload-image", { method: "POST", body: formData }).then(() => {
+  fetch(base + "upload-image", { method: "POST", body: formData }).then(() => {
     if (callback) callback();
   });
 }

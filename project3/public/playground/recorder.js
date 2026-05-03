@@ -4,6 +4,12 @@ let activeRecorder = null;
 let isRequesting = false;
 let pendingBlobs = {};
 
+const base =
+  location.hostname.toLowerCase().startsWith("browsercircus") ||
+  location.hostname.toLowerCase().startsWith("www")
+    ? "/ruiqi/port-4260/"
+    : "/";
+
 document
   .querySelectorAll(".my-pet-name")
   .forEach((el) => (el.innerText = myPetName));
@@ -82,15 +88,16 @@ document.querySelectorAll(".mic-btn").forEach((micBtn) => {
             formData.append("userId", myUserId);
             formData.append("soundType", soundType);
 
-            fetch("/upload-sound", { method: "POST", body: formData }).then(
-              () => {
-                document.getElementById("upload-status").innerText =
-                  "✅ Uploaded!";
-                setTimeout(() => {
-                  document.getElementById("upload-status").innerText = "";
-                }, 2000);
-              },
-            );
+            fetch(base + "upload-sound", {
+              method: "POST",
+              body: formData,
+            }).then(() => {
+              document.getElementById("upload-status").innerText =
+                "✅ Uploaded!";
+              setTimeout(() => {
+                document.getElementById("upload-status").innerText = "";
+              }, 2000);
+            });
           };
 
           recorder.start();
