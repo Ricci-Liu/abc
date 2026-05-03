@@ -1,3 +1,9 @@
+const base =
+  location.hostname.toLowerCase().startsWith("browsercircus") ||
+  location.hostname.toLowerCase().startsWith("www")
+    ? "/ruiqi/port-4260/"
+    : "/";
+
 // ── DOM references ────────────────────────────────────────────
 let video;
 let canvas;
@@ -304,7 +310,7 @@ sendButton.addEventListener("click", () => {
   function combineAndUpload(i) {
     if (i >= uploads.length) {
       resetAll();
-      window.location.href = "/playground";
+      window.location.href = base + "playground";
       return;
     }
     let { key, faceG, drawG } = uploads[i];
