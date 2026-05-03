@@ -1,14 +1,8 @@
 let myUserId = localStorage.getItem("user-id");
-let myPetName = localStorage.getItem("curPetName") || "your pet";
+let myPetName = "your pet";
 let activeRecorder = null;
 let isRequesting = false;
 let pendingBlobs = {};
-
-const base =
-  location.hostname.toLowerCase().startsWith("browsercircus") ||
-  location.hostname.toLowerCase().startsWith("www")
-    ? "/ruiqi/port-4260/"
-    : "/";
 
 document
   .querySelectorAll(".my-pet-name")

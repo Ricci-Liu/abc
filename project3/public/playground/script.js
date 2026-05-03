@@ -102,6 +102,12 @@ function addPet(petData) {
 socket.on("historic-records", (data) => {
   records = data;
   renderRecords();
+  // 在 historic-pets 里找到自己的宠物后加
+  if (myPet) {
+    document
+      .querySelectorAll(".my-pet-name")
+      .forEach((el) => (el.innerText = myPet.petName));
+  }
 });
 
 socket.on("historic-pets", function (data) {
