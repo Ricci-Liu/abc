@@ -456,7 +456,8 @@ function selectTool(tool) {
   }
 
   if (tool == "game") {
-    window.location.href = "/games";
+    window.location.href = base + "games";
+
     return;
   }
 }
