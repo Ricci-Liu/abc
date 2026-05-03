@@ -534,7 +534,7 @@ socket.on("new-poop", (poop) => {
   poops.push(poop);
   addRecord(poop.petName, "pooped 💩!");
   if (poop.poopSound) {
-    new Audio(base + data.eatSound).play();
+    new Audio(base + poop.poopSound).play();
   }
 });
 

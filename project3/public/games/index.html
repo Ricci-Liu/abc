@@ -143,13 +143,12 @@
   </head>
   <body>
     <div id="top-bar">
-      <button id="back-btn" onclick="location.href = '/playground'">🏠</button>
+      <button id="back-btn">🏠</button>
       <span id="top-title">🎮 Games</span>
     </div>
 
     <div id="game-grid">
-      <!-- Poop Run -->
-      <a class="game-card" href="/games/poop-trace">
+      <a class="game-card" id="poop-trace-link">
         <div class="game-thumb">💩</div>
         <div class="game-info">
           <div class="game-title">Poop Trace</div>
@@ -160,5 +159,18 @@
         </div>
       </a>
     </div>
+
+    <script>
+      const base =
+        location.hostname.toLowerCase().startsWith("browsercircus") ||
+        location.hostname.toLowerCase().startsWith("www")
+          ? "/ruiqi/port-4260/"
+          : "/";
+
+      document.getElementById("back-btn").onclick = () =>
+        (location.href = base + "playground");
+      document.getElementById("poop-trace-link").href =
+        base + "games/poop-trace";
+    </script>
   </body>
 </html>

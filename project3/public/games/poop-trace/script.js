@@ -420,3 +420,8 @@ function loadPetFromServer() {
 function goToPage(address) {
   window.href.location = base + "poop-trace";
 }
+
+document.getElementById("back-btn").onclick = () =>
+  (location.href = base + "games");
+document.getElementById("back-to-playground").onclick = () =>
+  (location.href = base + "playground");
