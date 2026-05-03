@@ -166,22 +166,28 @@ class Pet {
 
     this.bubbles = [];
 
-    loadImage("/" + data.front1, (img) => {
+    let base =
+      location.hostname.toLowerCase().startsWith("browsercircus") ||
+      location.hostname.toLowerCase().startsWith("www")
+        ? "/ruiqi/port-4260/"
+        : "/";
+
+    loadImage(base + data.front1, (img) => {
       this.front1 = img;
     });
-    loadImage("/" + data.front2, (img) => {
+    loadImage(base + data.front2, (img) => {
       this.front2 = img;
     });
-    loadImage("/" + data.left1, (img) => {
+    loadImage(base + data.left1, (img) => {
       this.left1 = img;
     });
-    loadImage("/" + data.left2, (img) => {
+    loadImage(base + data.left2, (img) => {
       this.left2 = img;
     });
-    loadImage("/" + data.right1, (img) => {
+    loadImage(base + data.right1, (img) => {
       this.right1 = img;
     });
-    loadImage("/" + data.right2, (img) => {
+    loadImage(base + data.right2, (img) => {
       this.right2 = img;
     });
   }
@@ -189,7 +195,7 @@ class Pet {
   getCurrentImg() {
     let f = Math.floor(millis() / this.frameDuration) % 2;
 
-    // 相遇时优先显示侧脸
+    // side face first
     if (this.meetingFacing && this.meetingFacing !== 0) {
       if (this.meetingFacing > 0) return f === 0 ? this.left1 : this.left2;
       else return f === 0 ? this.right1 : this.right2;
@@ -206,7 +212,7 @@ class Pet {
     return d < this.size / 2;
   }
   spawnBubble(emoji) {
-    // 清空之前的，只保留最新一个
+    // clean all before
     this.bubbles = [
       {
         emoji: emoji,
@@ -219,20 +225,17 @@ class Pet {
     this.bubbles = this.bubbles.filter((b) => b.life > 0);
     this.bubbles.forEach((b) => {
       b.life--;
-      let alpha = b.life > 20 ? 255 : map(b.life, 0, 20, 0, 255); // 最后20帧才淡出
+      let alpha = b.life > 20 ? 255 : map(b.life, 0, 20, 0, 255); // fade out
 
-      // 固定在宠物头顶
       let bx = this.x;
       let by = this.y - this.size / 2 - 20;
 
-      // 画气泡背景
       noStroke();
       fill(255, 255, 255, alpha);
       let pw = 36,
         ph = 30;
       rect(bx - pw / 2, by - ph / 2, pw, ph, 8);
 
-      // 气泡小尾巴
       triangle(bx - 6, by + ph / 2, bx + 6, by + ph / 2, bx, by + ph / 2 + 8);
 
       // emoji
