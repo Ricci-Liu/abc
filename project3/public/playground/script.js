@@ -615,7 +615,7 @@ document.querySelectorAll(".bg-btn").forEach((btn) => {
     socket.emit("bg-changed-from-client", { bg: currentBg });
 
     if (currentBg) {
-      loadImage(base + currentBg, (img) => {
+      loadImage(currentBg, (img) => {
         bgImg = img;
       });
     } else {
@@ -626,7 +626,7 @@ document.querySelectorAll(".bg-btn").forEach((btn) => {
 
 socket.on("bg-changed-from-server", (data) => {
   if (data.bg) {
-    loadImage(base + data.bg, (img) => {
+    loadImage(data.bg, (img) => {
       bgImg = img;
     });
   } else {
