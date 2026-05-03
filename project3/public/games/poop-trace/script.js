@@ -8,7 +8,13 @@ if (
 } else {
   socket = io();
 }
+
 const myUserId = localStorage.getItem("user-id");
+const base =
+  location.hostname.toLowerCase().startsWith("browsercircus") ||
+  location.hostname.toLowerCase().startsWith("www")
+    ? "/ruiqi/port-4260/"
+    : "/";
 
 // ── pet images ────────────────────────────────────────────────
 let petName = "?";
