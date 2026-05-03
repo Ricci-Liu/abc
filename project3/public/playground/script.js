@@ -8,6 +8,12 @@ if (
   socket = io();
 }
 
+const base =
+  location.hostname.toLowerCase().startsWith("browsercircus") ||
+  location.hostname.toLowerCase().startsWith("www")
+    ? "/ruiqi/port-4260/"
+    : "/";
+
 let pets = [];
 let pendingPets = [];
 let p5Ready = false;
@@ -84,7 +90,7 @@ function addPet(petData) {
   if (petData.sounds) {
     pet.audioCache = {};
     Object.entries(petData.sounds).forEach(([type, url]) => {
-      let audio = new Audio("/" + url);
+      let audio = new Audio(base + url);
       audio.load();
       pet.audioCache[type] = audio;
     });
@@ -110,7 +116,7 @@ socket.on("historic-pets", function (data) {
         previewArea.innerHTML = "";
         let player = document.createElement("audio");
         player.controls = true;
-        player.src = "/" + url;
+        player.src = base + url;
         previewArea.appendChild(player);
       }
     });
@@ -518,7 +524,7 @@ socket.on("pet-ate", (data) => {
   if (pet) pet.triggerEatEffect();
 
   if (data.eatSound) {
-    new Audio("/" + data.eatSound).play().catch((e) => console.log(e));
+    new Audio(base + data.eatSound).play();
   }
 });
 
@@ -527,7 +533,7 @@ socket.on("new-poop", (poop) => {
   poops.push(poop);
   addRecord(poop.petName, "pooped 💩!");
   if (poop.poopSound) {
-    new Audio("/" + poop.poopSound).play().catch((e) => console.log(e));
+    new Audio(base + data.eatSound).play();
   }
 });
 
@@ -540,7 +546,7 @@ socket.on("poop-removed", (id) => {
 });
 
 socket.on("play-sound", (data) => {
-  new Audio("/" + data.url).play().catch((e) => console.log(e));
+  new Audio(base + data.url).play();
 });
 
 socket.on("meeting-bubbles", (data) => {
@@ -572,7 +578,7 @@ socket.on("sound-updated", (data) => {
   let pet = pets.find((p) => p.userId == data.userId);
   if (pet) {
     if (!pet.audioCache) pet.audioCache = {};
-    let audio = new Audio("/" + data.url);
+    let audio = new Audio(base + data.url);
     audio.load();
     pet.audioCache[data.soundType] = audio;
   }
@@ -582,11 +588,11 @@ socket.on("sound-updated", (data) => {
 // Settings
 let currentBg = "assets/pixel-grass.jpg";
 
-// 初始化 username 输入框
+// initialize username
 document.getElementById("settings-username").value =
   localStorage.getItem("user-name") || "";
 
-// 保存 username
+// sacing username
 document.getElementById("settings-save-name").addEventListener("click", () => {
   let newName = document.getElementById("settings-username").value.trim();
   if (!newName) return;
@@ -609,7 +615,7 @@ document.querySelectorAll(".bg-btn").forEach((btn) => {
     socket.emit("bg-changed-from-client", { bg: currentBg });
 
     if (currentBg) {
-      loadImage(currentBg, (img) => {
+      loadImage(base + currentBg, (img) => {
         bgImg = img;
       });
     } else {
@@ -620,7 +626,7 @@ document.querySelectorAll(".bg-btn").forEach((btn) => {
 
 socket.on("bg-changed-from-server", (data) => {
   if (data.bg) {
-    loadImage(data.bg, (img) => {
+    loadImage(base + data.bg, (img) => {
       bgImg = img;
     });
   } else {
