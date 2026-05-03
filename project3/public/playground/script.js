@@ -102,19 +102,21 @@ function addPet(petData) {
 socket.on("historic-records", (data) => {
   records = data;
   renderRecords();
-  // 在 historic-pets 里找到自己的宠物后加
-  if (myPet) {
-    document
-      .querySelectorAll(".my-pet-name")
-      .forEach((el) => (el.innerText = myPet.petName));
-  }
 });
 
 socket.on("historic-pets", function (data) {
   data.forEach(addPet);
   // show the already recorded audio..
+
   let myUserId = localStorage.getItem("user-id");
   let myPet = data.find((p) => p.userId == myUserId);
+
+  if (myPet) {
+    document
+      .querySelectorAll(".my-pet-name")
+      .forEach((el) => (el.innerText = myPet.petName));
+  }
+
   if (myPet && myPet.sounds) {
     Object.entries(myPet.sounds).forEach(([type, url]) => {
       let previewArea = document.getElementById("preview-" + type);
