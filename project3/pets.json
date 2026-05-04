@@ -1,35 +1,4 @@
-dsdfsdfklnepk
-
 [
-  {
-    "userId": "043da26f-cf6b-4893-906d-f33aef3338f6",
-    "username": "a",
-    "petName": "小天才",
-    "front1": "uploads/1777752393952.png",
-    "front2": "uploads/1777752394104.png",
-    "left1": "uploads/1777752394241.png",
-    "left2": "uploads/1777752394359.png",
-    "right1": "uploads/1777752394457.png",
-    "right2": "uploads/1777752394547.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 703.0935883983025,
-    "y": 538.8309900392429,
-    "vx": -1,
-    "vy": 10.499433928044056,
-    "wanderAngle": -4.638881426913658,
-    "restTimer": 0,
-    "lastPoopTime": 1777867262404,
-    "sounds": {
-      "eat": "uploads-audio/1777753603524.mp3"
-    },
-    "meetingTimer": 21,
-    "meetingFacing": -1
-  },
   {
     "userId": "df3cb2b9-f1cf-4379-90c4-a44f379fb96d",
     "username": "dreamybot",
@@ -59,35 +28,7 @@ dsdfsdfklnepk
     "meetingTimer": 0,
     "meetingFacing": 0
   },
-  {
-    "userId": "d854f2ca-7c63-4be8-9cd2-213b2d79b881",
-    "username": "dreamybot",
-    "petName": "透明雪纺公主",
-    "front1": "uploads/1777784232557.png",
-    "front2": "uploads/1777784232575.png",
-    "left1": "uploads/1777784232588.png",
-    "left2": "uploads/1777784232606.png",
-    "right1": "uploads/1777784232621.png",
-    "right2": "uploads/1777784232640.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 497.13834777343436,
-    "y": 481.01380187964867,
-    "vx": -8.994983954751367,
-    "vy": -5.470483068594405,
-    "wanderAngle": 85.36940715183742,
-    "restTimer": 0,
-    "lastPoopTime": 1777867622405,
-    "sounds": {
-      "eat": "uploads-audio/1777811501360.mp3"
-    },
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
+
   {
     "userId": "03362ab3-3b1f-409c-a0ed-4dcc5e1ad8f5",
     "username": "a",
@@ -145,32 +86,7 @@ dsdfsdfklnepk
     "meetingTimer": 0,
     "meetingFacing": 0
   },
-  {
-    "userId": "1b20c978-7f81-4b2e-a0a7-43dc6c355f3d",
-    "username": "店小三",
-    "petName": "好",
-    "front1": "uploads/1777830995360.png",
-    "front2": "uploads/1777830995513.png",
-    "left1": "uploads/1777830995647.png",
-    "left2": "uploads/1777830995756.png",
-    "right1": "uploads/1777830995871.png",
-    "right2": "uploads/1777830995986.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 68.49369563039473,
-    "y": 281.3354420079457,
-    "vx": -4.032249918203598,
-    "vy": -9.725064624317913,
-    "wanderAngle": -20.813402024062263,
-    "restTimer": 0,
-    "lastPoopTime": 1777867802406,
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
+
   {
     "userId": "588ff7f5-d05c-431d-8bb0-b5b1f14e7dec",
     "username": "GoD ehT",
@@ -233,114 +149,7 @@ dsdfsdfklnepk
       "greet": "uploads-audio/1777834502467.mp3"
     }
   },
-  {
-    "userId": "b0781f67-35e3-4811-a217-ac10fd07ea19",
-    "username": "luna女神",
-    "petName": "kisskiss",
-    "front1": "uploads/1777834878779.png",
-    "front2": "uploads/1777834878899.png",
-    "left1": "uploads/1777834879109.png",
-    "left2": "uploads/1777834879174.png",
-    "right1": "uploads/1777834879248.png",
-    "right2": "uploads/1777834879296.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 152.35013404382204,
-    "y": 109.04293496141443,
-    "vx": -8.18688482585621,
-    "vy": 6.618975615469359,
-    "wanderAngle": 27.59444038086015,
-    "restTimer": 0,
-    "lastPoopTime": 1777867622405,
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
-  {
-    "userId": "e6585ac0-04d9-4000-a2d2-2f888d9e95e1",
-    "username": "ricci",
-    "petName": "Ike",
-    "front1": "uploads/1777839585449.png",
-    "front2": "uploads/1777839585877.png",
-    "left1": "uploads/1777839586440.png",
-    "left2": "uploads/1777839586892.png",
-    "right1": "uploads/1777839587442.png",
-    "right2": "uploads/1777839587893.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 212.08410606403183,
-    "y": 545.5175261714611,
-    "vx": -1,
-    "vy": 10.519283605174733,
-    "wanderAngle": -4.672012436681197,
-    "restTimer": 0,
-    "lastPoopTime": 1777867802406,
-    "meetingTimer": 23,
-    "meetingFacing": -1,
-    "sounds": {
-      "eat": "uploads-audio/1777840751268.mp3",
-      "poop": "uploads-audio/1777841820108.mp3"
-    }
-  },
-  {
-    "userId": "e6585ac0-04d9-4000-a2d2-2f888d9e95e1",
-    "username": "ricci",
-    "petName": "Drink",
-    "front1": "uploads/1777840013857.png",
-    "front2": "uploads/1777840014451.png",
-    "left1": "uploads/1777840014912.png",
-    "left2": "uploads/1777840015490.png",
-    "right1": "uploads/1777840015925.png",
-    "right2": "uploads/1777840016464.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 270.1489072121031,
-    "y": 491.59115386897633,
-    "vx": 8.132875119600289,
-    "vy": 6.685227269061179,
-    "wanderAngle": -5.59517265571136,
-    "restTimer": 0,
-    "lastPoopTime": 1777867802406,
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
-  {
-    "userId": "e6585ac0-04d9-4000-a2d2-2f888d9e95e1",
-    "username": "ricci",
-    "petName": "Wins",
-    "front1": "uploads/1777840701683.png",
-    "front2": "uploads/1777840702017.png",
-    "left1": "uploads/1777840702518.png",
-    "left2": "uploads/1777840703037.png",
-    "right1": "uploads/1777840703549.png",
-    "right2": "uploads/1777840704063.png",
-    "stats": {
-      "hunger": 11,
-      "happy": 0,
-      "age": 0,
-      "weight": 25
-    },
-    "x": 293.3814715972879,
-    "y": 367.4434492743571,
-    "vx": -3.094545592747471,
-    "vy": -9.509142315393497,
-    "wanderAngle": -1.8854157095269515,
-    "restTimer": 0,
-    "lastPoopTime": 1777867802406,
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
+
   {
     "userId": "cdb0faba-cd4a-425a-a476-1bafaf8f1426",
     "username": "脚毛",
@@ -372,58 +181,7 @@ dsdfsdfklnepk
       "eat": "uploads-audio/1777841353038.mp3"
     }
   },
-  {
-    "userId": "a3ec2824-fa92-40c8-a4fa-76f2a49f5fb0",
-    "username": "?",
-    "petName": "👃",
-    "front1": "uploads/1777841569237.png",
-    "front2": "uploads/1777841569499.png",
-    "left1": "uploads/1777841569683.png",
-    "left2": "uploads/1777841569850.png",
-    "right1": "uploads/1777841570012.png",
-    "right2": "uploads/1777841570174.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 477.240837319761,
-    "y": 285.8068808532394,
-    "vx": -7.9576818379082095,
-    "vy": -6.892838393335392,
-    "wanderAngle": -65.25962916855619,
-    "restTimer": 20,
-    "lastPoopTime": 1777867802406,
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
-  {
-    "userId": "cdb0faba-cd4a-425a-a476-1bafaf8f1426",
-    "username": "脚毛",
-    "petName": "king",
-    "front1": "uploads/1777841603098.png",
-    "front2": "uploads/1777841603405.png",
-    "left1": "uploads/1777841603596.png",
-    "left2": "uploads/1777841603785.png",
-    "right1": "uploads/1777841603971.png",
-    "right2": "uploads/1777841604159.png",
-    "stats": {
-      "hunger": 0,
-      "happy": 0,
-      "age": 0,
-      "weight": 20
-    },
-    "x": 694.4462708843372,
-    "y": 327.16569454410217,
-    "vx": 5.411462704521699,
-    "vy": 9.030614195478806,
-    "wanderAngle": -24.10180192476464,
-    "restTimer": 0,
-    "lastPoopTime": 1777867622405,
-    "meetingTimer": 0,
-    "meetingFacing": 0
-  },
+
   {
     "userId": "cdb0faba-cd4a-425a-a476-1bafaf8f1426",
     "username": "脚毛",
