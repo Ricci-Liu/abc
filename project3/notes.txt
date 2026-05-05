@@ -1,0 +1,3 @@
+copy pets.json from server
+
+scp abc-ruiqi:/srv/students/ruiqi/abc/project3/pets.json ~/Desktop
