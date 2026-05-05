@@ -86,6 +86,21 @@ const upload = multer({ storage: storage });
 
 app.use(express.static("public"));
 
+app.get("/api/check-pet", (req, res) => {
+  let userId = req.query.userId;
+  let pet = pets.find(
+    (p) =>
+      p.userId === userId &&
+      p.front1 &&
+      p.front2 &&
+      p.left1 &&
+      p.left2 &&
+      p.right1 &&
+      p.right2,
+  );
+  res.json({ hasPet: !!pet, pet: pet || null });
+});
+
 // for the new pets
 app.post("/upload-image", upload.single("image"), (req, res) => {
   let username = req.body.username || "Anonymous";

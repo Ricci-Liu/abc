@@ -13,24 +13,30 @@ const base =
   location.hostname.toLowerCase().startsWith("www")
     ? "/ruiqi/port-4260/"
     : "/";
-
 let isStandalone =
   window.navigator.standalone ||
   window.matchMedia("(display-mode: standalone)").matches;
+
 if (!isStandalone && !localStorage.getItem("dismissedInstall")) {
-  document.getElementById("install-overlay").style.display = "flex";
+  let myUserId = localStorage.getItem("user-id");
+  fetch(`${base}api/check-pet?userId=${myUserId}`)
+    .then((r) => r.json())
+    .then((data) => {
+      if (data.pet) {
+        let myPet = data.pet;
+        let frames = [base + myPet.front1, base + myPet.front2];
+        let idx = 0;
+        document.getElementById("install-pet-img").src = frames[0];
+        setInterval(() => {
+          idx = 1 - idx;
+          document.getElementById("install-pet-img").src = frames[idx];
+        }, 500);
+        document.getElementById("install-bubble").innerHTML =
+          `${myPet.petName} said:<br/>If you want to see me often,<br/>Plzzzz put me on the home screen!`;
+      }
+      document.getElementById("install-overlay").style.display = "flex";
+    });
 }
-document.getElementById("install-got-it").addEventListener("click", () => {
-  document.getElementById("install-overlay").style.display = "none";
-  localStorage.setItem("dismissedInstall", "1");
-  // 显示声音提醒
-  document.getElementById("sound-overlay").style.display = "flex";
-});
-
-document.getElementById("sound-got-it").addEventListener("click", () => {
-  document.getElementById("sound-overlay").style.display = "none";
-});
-
 let pets = [];
 let pendingPets = [];
 let p5Ready = false;
@@ -130,37 +136,6 @@ socket.on("historic-pets", function (data) {
     document
       .querySelectorAll(".my-pet-name")
       .forEach((el) => (el.innerText = myPet.petName));
-
-    // 用自己的宠物替换 install overlay 里的图片
-    if (!localStorage.getItem("dismissedInstall")) {
-      let frames = [base + myPet.front1, base + myPet.front2];
-      let idx = 0;
-      let installImg = document.getElementById("install-pet-img");
-      if (installImg) {
-        installImg.src = frames[0];
-        setInterval(() => {
-          idx = 1 - idx;
-          installImg.src = frames[idx];
-        }, 500);
-      }
-
-      // sound overlay 也换成自己的宠物
-      let soundImg = document.querySelector("#sound-pet img");
-      if (soundImg) {
-        soundImg.src = frames[0];
-        setInterval(() => {
-          idx = 1 - idx;
-          soundImg.src = frames[idx];
-        }, 500);
-      }
-
-      let bubble = document.getElementById("install-bubble");
-      if (bubble) {
-        bubble.innerHTML = `${myPet.petName} said: <br/>
-      If you want to see me often, <br/>
-      Plzzzz put me on the home screen!`;
-      }
-    }
 
     if (myPet.sounds) {
       Object.entries(myPet.sounds).forEach(([type, url]) => {
