@@ -13,6 +13,7 @@ const base =
   location.hostname.toLowerCase().startsWith("www")
     ? "/ruiqi/port-4260/"
     : "/";
+
 let isStandalone =
   window.navigator.standalone ||
   window.matchMedia("(display-mode: standalone)").matches;
@@ -33,10 +34,29 @@ if (!isStandalone && !localStorage.getItem("dismissedInstall")) {
         }, 500);
         document.getElementById("install-bubble").innerHTML =
           `${myPet.petName} said:<br/>If you want to see me often,<br/>Plzzzz put me on the home screen!`;
+        let soundImg = document.querySelector("#sound-pet img");
+        if (soundImg) {
+          soundImg.src = frames[0];
+          let idx2 = 0;
+          setInterval(() => {
+            idx2 = 1 - idx2;
+            soundImg.src = frames[idx2];
+          }, 500);
+        }
       }
       document.getElementById("install-overlay").style.display = "flex";
     });
 }
+
+document.getElementById("install-got-it").addEventListener("click", () => {
+  document.getElementById("install-overlay").style.display = "none";
+  localStorage.setItem("dismissedInstall", "1");
+  document.getElementById("sound-overlay").style.display = "flex";
+});
+
+document.getElementById("sound-got-it").addEventListener("click", () => {
+  document.getElementById("sound-overlay").style.display = "none";
+});
 let pets = [];
 let pendingPets = [];
 let p5Ready = false;
