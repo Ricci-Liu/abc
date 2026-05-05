@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <title>pyq</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "PingFang SC", sans-serif;
+        background: rgb(254, 255, 225);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        padding: 0 40px;
+      }
+      #install-hint {
+        display: none;
+        background: white;
+        border-radius: 16px;
+        padding: 16px 20px;
+        font-size: 13px;
+        color: #333;
+        text-align: center;
+        max-width: 280px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      }
+      #loading {
+        font-size: 14px;
+        color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>pyq 朋友圈</h1>
+    <p>a shared pet garden</p>
+    <div id="install-hint">
+      📲 tap <strong>Share</strong> → <strong>Add to Home Screen</strong
+      ><br />for the best experience
+    </div>
+    <div id="loading">loading...</div>
+
+    <script>
+      const base =
+        location.hostname.toLowerCase().startsWith("browsercircus") ||
+        location.hostname.toLowerCase().startsWith("www")
+          ? "/ruiqi/port-4260/"
+          : "/";
+
+      // // force building standalone app
+      //     let isStandalone =
+      //       window.navigator.standalone ||
+      //       window.matchMedia("(display-mode: standalone)").matches;
+      //     if (!isStandalone && !localStorage.getItem("dismissedInstallPrompt")) {
+      //       document.getElementById("install-hint").style.display = "block";
+      //     }
+
+      let userId = localStorage.getItem("user-id");
+      let petName = localStorage.getItem("curPetName");
+      if (!userId) {
+        window.location.href = base + "create";
+      } else {
+        if (petName) {
+          window.location.href = base + "playground";
+        } else {
+          window.location.href = base + "create";
+        }
+      }
+    </script>
+  </body>
+</html>

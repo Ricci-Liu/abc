@@ -14,6 +14,23 @@ const base =
     ? "/ruiqi/port-4260/"
     : "/";
 
+let isStandalone =
+  window.navigator.standalone ||
+  window.matchMedia("(display-mode: standalone)").matches;
+if (!isStandalone && !localStorage.getItem("dismissedInstall")) {
+  document.getElementById("install-overlay").style.display = "flex";
+}
+document.getElementById("install-got-it").addEventListener("click", () => {
+  document.getElementById("install-overlay").style.display = "none";
+  localStorage.setItem("dismissedInstall", "1");
+  // 显示声音提醒
+  document.getElementById("sound-overlay").style.display = "flex";
+});
+
+document.getElementById("sound-got-it").addEventListener("click", () => {
+  document.getElementById("sound-overlay").style.display = "none";
+});
+
 let pets = [];
 let pendingPets = [];
 let p5Ready = false;
@@ -103,10 +120,8 @@ socket.on("historic-records", (data) => {
   records = data;
   renderRecords();
 });
-
 socket.on("historic-pets", function (data) {
   data.forEach(addPet);
-  // show the already recorded audio..
 
   let myUserId = localStorage.getItem("user-id");
   let myPet = data.find((p) => p.userId == myUserId);
@@ -115,19 +130,50 @@ socket.on("historic-pets", function (data) {
     document
       .querySelectorAll(".my-pet-name")
       .forEach((el) => (el.innerText = myPet.petName));
-  }
 
-  if (myPet && myPet.sounds) {
-    Object.entries(myPet.sounds).forEach(([type, url]) => {
-      let previewArea = document.getElementById("preview-" + type);
-      if (previewArea) {
-        previewArea.innerHTML = "";
-        let player = document.createElement("audio");
-        player.controls = true;
-        player.src = base + url;
-        previewArea.appendChild(player);
+    // 用自己的宠物替换 install overlay 里的图片
+    if (!localStorage.getItem("dismissedInstall")) {
+      let frames = [base + myPet.front1, base + myPet.front2];
+      let idx = 0;
+      let installImg = document.getElementById("install-pet-img");
+      if (installImg) {
+        installImg.src = frames[0];
+        setInterval(() => {
+          idx = 1 - idx;
+          installImg.src = frames[idx];
+        }, 500);
       }
-    });
+
+      // sound overlay 也换成自己的宠物
+      let soundImg = document.querySelector("#sound-pet img");
+      if (soundImg) {
+        soundImg.src = frames[0];
+        setInterval(() => {
+          idx = 1 - idx;
+          soundImg.src = frames[idx];
+        }, 500);
+      }
+
+      let bubble = document.getElementById("install-bubble");
+      if (bubble) {
+        bubble.innerHTML = `${myPet.petName} said: <br/>
+      If you want to see me often, <br/>
+      Plzzzz put me on the home screen!`;
+      }
+    }
+
+    if (myPet.sounds) {
+      Object.entries(myPet.sounds).forEach(([type, url]) => {
+        let previewArea = document.getElementById("preview-" + type);
+        if (previewArea) {
+          previewArea.innerHTML = "";
+          let player = document.createElement("audio");
+          player.controls = true;
+          player.src = base + url;
+          previewArea.appendChild(player);
+        }
+      });
+    }
   }
 });
 

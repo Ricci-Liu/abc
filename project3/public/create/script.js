@@ -139,7 +139,7 @@ function draw() {
 
   // PREVIEW: cycle through all 6 combinations
   if (phase === "preview") {
-    background(205, 234, 255);
+    background(191, 249, 255);
     // 6 frames: front1, front2, left1, left2, right1, right2
     let f = Math.floor(millis() / frameDuration) % 6;
     let faceIdx = Math.floor(f / 2); // 0,0,1,1,2,2
@@ -197,6 +197,8 @@ captureButton.addEventListener("click", () => {
     captureButton.innerText = "Try Again";
     captureButton.style.width = "30%";
     captureButton.style.backgroundColor = "rgb(255, 191, 191)";
+    captureButton.style.color = "#333";
+    captureButton.style.borderColor = "#333";
     previewButton.style.display = "flex";
     previewButton.innerText = "Save ✓";
     sendButton.style.visibility = "hidden";
@@ -204,7 +206,9 @@ captureButton.addEventListener("click", () => {
     snapped = false;
     captureButton.innerText = "SNAP!";
     captureButton.style.width = "50%";
-    captureButton.style.backgroundColor = "initial";
+    captureButton.style.backgroundColor = "#ff56b0"; // ← 改这里
+    captureButton.style.color = "#0b00de";
+    captureButton.style.borderColor = "#0b00de";
     previewButton.style.display = "none";
   }
   updateInstruction();
@@ -222,7 +226,9 @@ previewButton.addEventListener("click", () => {
       snapped = false;
       captureButton.innerText = "SNAP!";
       captureButton.style.width = "50%";
-      captureButton.style.backgroundColor = "initial";
+      captureButton.style.backgroundColor = "#ff56b0";
+      captureButton.style.color = "#0b00de";
+      captureButton.style.border = "2px solid #0b00de";
       previewButton.style.display = "none";
       updateInstruction();
     } else {
@@ -361,7 +367,9 @@ function resetAll() {
   sendButton.style.visibility = "hidden";
   captureButton.innerText = "SNAP!";
   captureButton.style.width = "50%";
-  captureButton.style.backgroundColor = "initial";
+  captureButton.style.backgroundColor = "#ff56b0";
+  captureButton.style.color = "#0b00de";
+  captureButton.style.border = "2px solid #0b00de";
   captureButton.style.display = "block";
   previewButton.style.display = "none";
   document.getElementById("pen-tools").style.display = "none";
@@ -370,7 +378,15 @@ function resetAll() {
 }
 
 function updateInstruction() {
-  let el = document.getElementById("instruction-text");
+  let el = document.getElementById("instruction-bubble");
+  let petImg = document.getElementById("guide-pet-img");
+
+  // 两帧动画
+  petImg.src =
+    Math.floor(Date.now() / 500) % 2 === 0
+      ? "../assets/zhuge-01.png"
+      : "../assets/zhuge-02.png";
+
   if (phase === "snap") {
     if (!snapped)
       el.innerText = "📸 snap your " + faceLabels[snapIndex] + " face";
@@ -381,6 +397,15 @@ function updateInstruction() {
     el.innerText = "🎉 looking good! give your pet a name";
   }
 }
+
+setInterval(() => {
+  let img = document.getElementById("guide-pet-img");
+  if (img) {
+    img.src = img.src.includes("01")
+      ? "../assets/zhuge-02.png"
+      : "../assets/zhuge-01.png";
+  }
+}, 500);
 
 // ── Drawing ───────────────────────────────────────────────────
 function touchStarted() {

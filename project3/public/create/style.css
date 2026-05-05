@@ -40,6 +40,8 @@ canvas {
 }
 
 #user-nameWrapper input {
+  font-family: "Pixelify Sans", sans-serif;
+
   width: 70%;
 
   max-width: 320px;
@@ -60,7 +62,7 @@ canvas {
 #user-nameWrapper p {
   margin: 0;
 
-  font-family: sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
 
   font-size: 18px;
 }
@@ -72,24 +74,64 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(205, 234, 255);
+  background-color: rgb(191, 249, 255);
+}
+
+#captureButton {
+  background: #ff56b0;
+  color: #0b00de;
+  border: 2px solid #0b00de;
+  width: 50%;
+  max-width: 240px;
 }
 
 #canvas-wrapper {
   /* margin: auto; */
 }
 
-button {
-  width: 60%; /* 变大 */
-  max-width: 300px; /* 防止太宽 */
-  height: 40px; /* 更高 */
-  border-radius: 25px;
+#instruction-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  margin: 6px 0;
+}
 
+#guide-pet-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+#instruction-bubble {
+  background: white;
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  padding: 10px 14px;
+  font-size: 20px;
+  color: #0b00de;
+  font-family: "Pixelify Sans", sans-serif;
+  line-height: 1.6;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+button {
+  height: 44px;
+  border-radius: 25px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin: 8px auto; /* 关键：居中 + 留间距 */
+  margin: 8px auto;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 24px;
+  background: #ff56b0;
+  color: white;
+  letter-spacing: 0.5px;
 }
 
 #pen-tools {
@@ -97,7 +139,7 @@ button {
   padding: 10px;
   background: #rgb(205, 234, 255);
   color: black;
-  font-family: sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
   font-size: 13px;
   flex-direction: column;
   gap: 8px;
@@ -105,7 +147,7 @@ button {
 
 #instruction-text {
   margin: 6px 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Pixelify Sans", sans-serif;
   font-size: 20px;
   color: #0b00de;
   text-align: center;
@@ -246,24 +288,6 @@ button {
 #sendButton {
   visibility: hidden;
   background-color: aquamarine;
-}
-
-#album {
-  height: 50vh;
-  background-color: rgb(205, 234, 255);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  outline: 1px white dotted;
-}
-
-#album img {
-  width: 50%;
-}
-
-#album p {
-  font-family: sans-serif;
-  color: white;
 }
 
 #images {

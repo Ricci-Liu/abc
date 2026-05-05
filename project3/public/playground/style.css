@@ -13,6 +13,139 @@ canvas {
   user-select: none;
 }
 
+#install-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+#install-pet {
+  margin-bottom: 8px;
+}
+
+#install-pet-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+#install-bubble {
+  background: white;
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.7;
+  position: relative;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+#install-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: white;
+}
+
+#install-steps {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 16px;
+  margin-top: 14px;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+#install-box {
+  background: rgb(205, 234, 255);
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 300px;
+  width: 85%;
+  text-align: center;
+}
+
+#install-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+#install-title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ff56b0;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+#install-desc {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+#install-got-it {
+  background: #ff56b0;
+  font-family: "Pixelify Sans", sans-serif;
+  color: white;
+  border: none;
+  width: 60%;
+  height: 40px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+#sound-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+
+#sound-box {
+  background: rgb(205, 234, 255);
+  border-radius: 20px;
+  padding: 28px 24px;
+  max-width: 300px;
+  width: 85%;
+  text-align: center;
+}
+
+#sound-pet img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+#sound-got-it {
+  background: #ff56b0;
+  color: white;
+  border: none;
+  width: 60%;
+  height: 40px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 12px auto 0;
+}
+
 #top-bar {
   position: fixed;
   top: 0;

@@ -8,6 +8,10 @@
     />
 
     <link rel="manifest" href="/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap"
+      rel="stylesheet"
+    />
 
     <title>pyq</title>
 
@@ -23,7 +27,7 @@
   <body>
     <div id="main-wrapper">
       <div id="user-nameWrapper">
-        <p>Enter your name to begin</p>
+        <p>Enter your <strong>USER NAME</strong> to begin</p>
 
         <input
           type="text"
@@ -36,8 +40,10 @@
       </div>
 
       <div id="captureArea" style="display: none">
-        <p id="instruction-text">📸 fit your face in the circle, then snap!</p>
-
+        <div id="instruction-row">
+          <img id="guide-pet-img" src="../assets/zhuge-01.png" />
+          <div id="instruction-bubble">📸 snap your FRONT face</div>
+        </div>
         <div id="canvas-wrapper"></div>
         <button id="captureButton">SNAP!</button>
 
@@ -95,6 +101,7 @@
       src="/231286__ulose2piranha__5dmkii-shutter-sound.wav"
     ></audio>
     <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+
     <script src="script.js"></script>
   </body>
 </html>
