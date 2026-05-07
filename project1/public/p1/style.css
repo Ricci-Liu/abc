@@ -1,20 +1,22 @@
-body{
-    margin: 0;
-    overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.main-wrapper{
-    width:100%;
-    height:100dvh;
-    /* background-color: #fcdddd; */
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+html {
+  background-color: black;
+}
+.main-wrapper {
+  width: 100%;
+  height: 100dvh;
+  /* background-color: #fcdddd; */
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#frogImg{
-    transition: width;
-
+#frogImg {
+  transition: width;
 }
