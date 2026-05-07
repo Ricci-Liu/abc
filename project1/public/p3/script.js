@@ -33,7 +33,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(255);
 
   let localX = originX - deltaX;
 
@@ -60,7 +60,7 @@ function draw() {
     }
   }
 
-  stroke(255);
+  stroke(0);
   strokeWeight(strokeW);
   noFill();
   beginShape();
