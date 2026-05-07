@@ -96,7 +96,7 @@ function handleOrientation(eventData) {
   gyroBeta = eventData.beta;
   gyroGamma = eventData.gamma;
 
-  let smoothedAlpha = getSmoothedAlpha(gyroAlpha);
+  //let smoothedAlpha = getSmoothedAlpha(gyroAlpha);
 
   textSize(16);
   stroke(0);
