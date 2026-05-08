@@ -24,7 +24,7 @@ let foods = [];
 // fine tuning parameters
 let ageInterval = hourToMillis(24);
 let hungryInterval = 10000;
-let poopInterval = hourToMillis(0.05);
+let poopInterval = hourToMillis(0.5);
 
 //poop
 let poops = [];
@@ -78,6 +78,7 @@ const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public/uploads");
   },
+
   filename: function (req, file, cb) {
     cb(null, Date.now() + ".png");
   },
