@@ -54,9 +54,9 @@ let isStandalone =
 //   document.getElementById("sound-overlay").style.display = "flex";
 // });
 
-document.getElementById("sound-got-it").addEventListener("click", () => {
-  document.getElementById("sound-overlay").style.display = "none";
-});
+// document.getElementById("sound-got-it").addEventListener("click", () => {
+//   document.getElementById("sound-overlay").style.display = "none";
+// });
 let pets = [];
 let pendingPets = [];
 let p5Ready = false;
