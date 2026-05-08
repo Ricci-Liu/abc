@@ -11,7 +11,7 @@ if (
 const base =
   location.hostname.toLowerCase().startsWith("browsercircus") ||
   location.hostname.toLowerCase().startsWith("www")
-    ? "/ruiqi/port-4260/"
+    ? "/ruiqi/port-4261/"
     : "/";
 
 let isStandalone =
@@ -224,7 +224,7 @@ class Pet {
     let base =
       location.hostname.toLowerCase().startsWith("browsercircus") ||
       location.hostname.toLowerCase().startsWith("www")
-        ? "/ruiqi/port-4260/"
+        ? "/ruiqi/port-4261/"
         : "/";
 
     loadImage(base + data.front1, (img) => {
@@ -392,19 +392,21 @@ function heartsBar(value, maxHearts) {
 }
 
 function touchStarted() {
-  pets.forEach((pet) => {
-    if (pet.isTouched(mouseX, mouseY)) {
-      pet.selected = !pet.selected;
-      if (pet.selected) {
-        socket.emit("pet-clicked-by-user", {
-          petUserId: pet.userId,
-          petName: pet.petName,
-        });
+  if (pets) {
+    pets.forEach((pet) => {
+      if (pet.isTouched(mouseX, mouseY)) {
+        pet.selected = !pet.selected;
+        if (pet.selected) {
+          socket.emit("pet-clicked-by-user", {
+            petUserId: pet.userId,
+            petName: pet.petName,
+          });
+        }
+      } else {
+        pet.selected = false;
       }
-    } else {
-      pet.selected = false;
-    }
-  });
+    });
+  }
 
   if (currentTool) {
     let userName = localStorage.getItem("user-name");
