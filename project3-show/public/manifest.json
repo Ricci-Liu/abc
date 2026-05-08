@@ -1,0 +1,15 @@
+{
+  "name": "pyq",
+  "short_name": "pyq",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/assets/icon-1.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "orientation": "natural",
+  "display": "standalone"
+}
