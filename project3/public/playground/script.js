@@ -18,41 +18,41 @@ let isStandalone =
   window.navigator.standalone ||
   window.matchMedia("(display-mode: standalone)").matches;
 
-if (!isStandalone && !localStorage.getItem("dismissedInstall")) {
-  let myUserId = localStorage.getItem("user-id");
-  fetch(`${base}api/check-pet?userId=${myUserId}`)
-    .then((r) => r.json())
-    .then((data) => {
-      if (data.pet) {
-        let myPet = data.pet;
-        let frames = [base + myPet.front1, base + myPet.front2];
-        let idx = 0;
-        document.getElementById("install-pet-img").src = frames[0];
-        setInterval(() => {
-          idx = 1 - idx;
-          document.getElementById("install-pet-img").src = frames[idx];
-        }, 500);
-        document.getElementById("install-bubble").innerHTML =
-          `${myPet.petName} said:<br/>If you want to see me often,<br/>Plzzzz put me on the home screen!`;
-        let soundImg = document.querySelector("#sound-pet img");
-        if (soundImg) {
-          soundImg.src = frames[0];
-          let idx2 = 0;
-          setInterval(() => {
-            idx2 = 1 - idx2;
-            soundImg.src = frames[idx2];
-          }, 500);
-        }
-      }
-      document.getElementById("install-overlay").style.display = "flex";
-    });
-}
+// if (!isStandalone && !localStorage.getItem("dismissedInstall")) {
+//   let myUserId = localStorage.getItem("user-id");
+//   fetch(`${base}api/check-pet?userId=${myUserId}`)
+//     .then((r) => r.json())
+//     .then((data) => {
+//       if (data.pet) {
+//         let myPet = data.pet;
+//         let frames = [base + myPet.front1, base + myPet.front2];
+//         let idx = 0;
+//         document.getElementById("install-pet-img").src = frames[0];
+//         setInterval(() => {
+//           idx = 1 - idx;
+//           document.getElementById("install-pet-img").src = frames[idx];
+//         }, 500);
+//         document.getElementById("install-bubble").innerHTML =
+//           `${myPet.petName} said:<br/>If you want to see me often,<br/>Plzzzz put me on the home screen!`;
+//         let soundImg = document.querySelector("#sound-pet img");
+//         if (soundImg) {
+//           soundImg.src = frames[0];
+//           let idx2 = 0;
+//           setInterval(() => {
+//             idx2 = 1 - idx2;
+//             soundImg.src = frames[idx2];
+//           }, 500);
+//         }
+//       }
+//       document.getElementById("install-overlay").style.display = "flex";
+//     });
+// }
 
-document.getElementById("install-got-it").addEventListener("click", () => {
-  document.getElementById("install-overlay").style.display = "none";
-  localStorage.setItem("dismissedInstall", "1");
-  document.getElementById("sound-overlay").style.display = "flex";
-});
+// document.getElementById("install-got-it").addEventListener("click", () => {
+//   document.getElementById("install-overlay").style.display = "none";
+//   localStorage.setItem("dismissedInstall", "1");
+//   document.getElementById("sound-overlay").style.display = "flex";
+// });
 
 document.getElementById("sound-got-it").addEventListener("click", () => {
   document.getElementById("sound-overlay").style.display = "none";
